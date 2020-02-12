@@ -1,0 +1,15 @@
+#This yaml will create PVC for the Jenkins Deployment having RWX mode as we have multiple pods
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkinsvolume-claim
+  labels:
+    app: jenkinsvolume-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi

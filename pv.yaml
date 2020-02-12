@@ -1,0 +1,16 @@
+#This Yaml will create PersistentVolume for Jenkins deployment having path /var/lib/jenkins/workspace
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jenkins-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/lib/jenkins/workspace"

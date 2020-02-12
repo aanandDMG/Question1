@@ -1,0 +1,30 @@
+#This is deployment file for the Jenkins
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jenkins
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      volumes:
+        - name: jenkinsvolume-claim
+          persistentVolumeClaim:
+            claimName: jenkinsvolume-claim
+      containers:
+        - name: jenkins
+          image: jenkins
+          volumeMounts:
+            - name: jenkinsvolume-claim
+              mountPath: "/var/lib/jenkins/workspace"
+          ports:
+            - containerPort: 8080

@@ -9,7 +9,7 @@ Kubernetes
 Details
 ---------------------------------------------------------------------------------------------------------------
 
-1. Kindly make a folder on path /var/lib/jenkins/workspace by mkdir.
+1. Kindly create this path /var/lib/jenkins/workspace by mkdir.
 
 2. Kindly run pv.yaml by kubectl apply -f pv.yaml. It will create a PersistentVolume.
 
